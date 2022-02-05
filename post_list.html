@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="centerstage">
+  {% for post in post_list %} <!-- loop through every post, where post_list is default name
+  lowercase model and 'list' for the ListView we inherit from-->
+  <div class="POST">
+    <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+    <div class="date">
+      <p>Published on: {{post.published_date}}</p> <!-- published date attribute from Post model -->
+    </div>
+    <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{post.approve_comments.count}}</a>
+
+  </div>
+
+  {% endfor %}
+
+</div>
+
+
+{% endblock %}

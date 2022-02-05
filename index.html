@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1>Welcome to the Nashville Music Blog</h1>
+    <br>
+    <h3>About this site</h3>
+    <p> This is a site where you can post about your favourite musicians, artists and bands. Detail upcoming shows,
+      album releases, and even rate albums / songs recommended by fellow users!
+    </p>
+</div>
+  <br>
+  <div class="row"> <!--Allow for images to be re-sized for mobile / smaller monitors / window resizing -->
+    <div class="col-lg-4 col-6 px-0"><img class='img-thumbnail img-fluid' src="{% static "images/countryside.jpeg" %}" alt="Image not found"></div>
+    <div class="col-lg-4 col-6 px-0"><img class='img-thumbnail img-fluid' src="{% static "images/Guitar.png" %}" alt="Image not found"></div>
+    <div class="col-lg-4 col-6 px-0"><img class='img-thumbnail img-fluid' src="{% static "images/Country.jpeg" %}" alt="Image not found"></div>
+    <div class="col-lg-4 col-6 px-0"><img class='img-thumbnail img-fluid' src="{% static "images/country2.jpeg" %}" alt="Image not found"></div>
+    <div class="col-lg-4 col-6 px-0"><img class='img-thumbnail img-fluid' src="{% static "images/country4.jpeg" %}" alt="Image not found"></div>
+    <div class="col-lg-4 col-6 px-0"><img class='img-thumbnail img-fluid' src="{% static "images/arizona.jpeg" %}" alt="Image not found"></div>
+  </div>
+
+{% endblock %}

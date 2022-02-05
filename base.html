@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>My Test Site</title> <!-- loading bootstrap for styling -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  </head>
+  <body>
+      <nav class="navbar navbar-toggleable-md navbar-expand-lg navbar-dark bg-dark mynav" role="navigation" id="navbar">
+        <div class="container">
+          <div class="navbar-nav align-items-center">
+
+          <a class='navbar-brand mynav' href="{% url 'home' %}">Nashville Music Blog</a>
+
+        </div> <!--Include collapse option for mobile displays. Used included JS file, required ID = bs-example-navbar-collapse-1 -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="navbar-nav ml-auto">
+
+            {% if user.is_authenticated %} <!-- If the user is signed in, we want to show options to post etc.-->
+                <a class="nav-item nav-link" href="{% url 'post_new' %}">New Post</a>
+                <a class="nav-item nav-link" href="{% url 'post_draft_list' %}">Drafts</a>
+                <a class="nav-item nav-link" href="{% url 'post_list' %}">Posts</a>
+                <a class="nav-item nav-link" href="{% url 'logout' %}">Log out</a>
+            {% else %} <!-- If user is not signed in, then prompt a login  -->
+                <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+            {% endif %} <!--End if required in template tagging -->
+
+            </div>
+
+          </div>
+
+
+        </div>
+      </nav>
+
+
+    <div class="container">
+
+      {% block content %}
+
+      {% endblock %}
+
+    </div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!-- JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+  </body>
+</html>

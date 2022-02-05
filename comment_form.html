@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+  <h1>New Comment</h1>
+  <form class="post-form" method="POST">
+    {% csrf_token %}
+    <!--{{form.as_p}}--> {% bootstrap_form form %}
+    <button type="submit" class = 'btn btn-default'>Post Comment</button>
+
+  </form>
+
+  <script> var editor = new Mediumeditor('.editable' );
+
+  </script>
+
+{% endblock %}
